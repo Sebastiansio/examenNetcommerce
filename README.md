@@ -47,6 +47,8 @@ https://github.com/Sebastiansio/examenNet.git
 ## Puntos de consulta
 GET
 **/api/companies**
+![Consulta de Companies](Captura%20de%20pantalla%202024-06-21%20114001.png)
 
 POST
 **/api/tasks/create**
+![Consulta de Tasks](Captura%20de%20pantalla%202024-06-21%20120923.png)
