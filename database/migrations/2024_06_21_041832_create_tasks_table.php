@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->date('expired_at');
-            $table->date('start_at')->default(now());
+            $table->string('name');
+            $table->date('expired_at')->nullable()->default(now());;
+            $table->date('start_at')->nullable()->default(now());
             $table->text('description')->nullable();
-            $table->string('status')->default('pending');
-            $table->boolean('is_completed')->default(0);
+            $table->string('status')->nullable()->default('pending');
+            $table->boolean('is_completed')->nullable()->default(0);
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps(); // Para created_at y updated_at
+            $table->timestamps(); 
         });
     }
 

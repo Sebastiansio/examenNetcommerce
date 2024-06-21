@@ -18,13 +18,10 @@ class TaskController extends Controller
     {
         // Validar los datos de entrada
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'required|string|in:pending,completed',
             'user_id' => 'required|exists:users,id',
             'company_id' => 'required|exists:companies,id',
-            'start_at' => 'nullable|date',
-            'expired_at' => 'nullable|date|after_or_equal:start_at',
         ]);
 
         // Obtener el usuario

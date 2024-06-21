@@ -14,6 +14,7 @@ class CompanyController extends Controller
     {
         // Obtener todas las compañías con sus tareas y los usuarios asociados
         $companies = Company::with(['tasks.user'])->get();
+      
 
         // Formatear la respuesta
         $formattedCompanies = $companies->map(function ($company) {
@@ -23,7 +24,7 @@ class CompanyController extends Controller
                 'tasks' => $company->tasks->map(function ($task) {
                     return [
                         'id' => $task->id,
-                        'name' => $task->title,
+                        'name' => $task->name,
                         'description' => $task->description,
                         'user' => $task->user->name,
                         'is_completed' => $task->is_completed,
