@@ -16,7 +16,7 @@ class CompanyController extends Controller
         $companies = Company::with(['tasks.user'])->get();
       
 
-        // Formatear la respuesta
+     
         $formattedCompanies = $companies->map(function ($company) {
             return [
                 'id' => $company->id,
