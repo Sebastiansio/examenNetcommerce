@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_completed'
     ];
 
     /**
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function completedTasksCount()
+    {
+        return $this->tasks()->where('status', 'completed')->count();
     }
 }

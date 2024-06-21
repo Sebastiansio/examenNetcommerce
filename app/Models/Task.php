@@ -10,11 +10,21 @@ class Task extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'title', 'description', 'user_id', 'company_id', 'status', 'start_at', 'expired_at', 'is_completed',
     ];
+
+    protected $casts = [
+        'start_at' => 'datetime',
+        'expired_at' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function company()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Company::class);
     }
 }

@@ -15,6 +15,8 @@ class UserController
     {
         //devuelve todos los usuarios
         $users = User::all();
+
+    
         return response()->json($users);
     }
 
